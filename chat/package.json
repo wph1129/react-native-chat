@@ -6,7 +6,17 @@
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
+    "md5": "^2.2.1",
+    "moment": "^2.14.1",
     "react": "15.3.1",
-    "react-native": "0.32.1"
+    "react-native": "0.32.1",
+    "react-native-actionsheet": "^2.0.3",
+    "react-native-camera-roll-picker": "^1.1.7",
+    "react-native-communications": "^2.1.0",
+    "react-native-dismiss-keyboard": "^1.0.0",
+    "react-native-invertible-scroll-view": "^1.0.0",
+    "react-native-nav": "^1.1.4",
+    "react-native-parsed-text": "0.0.15",
+    "shallowequal": "^0.2.2"
   }
 }
