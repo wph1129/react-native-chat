@@ -97,7 +97,7 @@ class AppChat extends React.Component {
           user: {
             _id: 2,
             name: 'React Native',
-            // avatar: 'https://facebook.github.io/react/img/logo_og.png',
+            avatar: 'https://facebook.github.io/react/img/logo_og.png',
           },
         }),
       };
@@ -161,7 +161,9 @@ class AppChat extends React.Component {
         messages={this.state.messages}
         onSend={this.onSend}
         user={{
-          _id: 1, // sent messages should have same user._id
+          _id: 1, // sent messages should have same user._id,
+          name: 'Developer',
+          avatar: 'https://facebook.github.io/react/img/logo_og.png',
         }}
         renderActions={this.renderActions}
         renderBubble={this.renderBubble}

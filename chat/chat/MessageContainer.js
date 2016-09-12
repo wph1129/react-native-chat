@@ -3,6 +3,7 @@ import {
   ListView,
   View,
   StyleSheet,
+  ScrollView,
 } from 'react-native';
 
 import shallowequal from 'shallowequal';
@@ -125,8 +126,6 @@ class MessageContainer extends React.Component {
           enableEmptySections={true}
           keyboardShouldPersistTaps={true}
           automaticallyAdjustContentInsets={false}
-          initialListSize={20}
-          pageSize={20}
           dataSource={this.state.dataSource}
           renderRow={this.renderRow}
           renderHeader={this.renderFooter}
@@ -141,14 +140,12 @@ class MessageContainer extends React.Component {
 const styles = StyleSheet.create({
     msgContainer:{
       flex:1,
-      flexDirection:'column',
-      justifyContent:'flex-start',
+      flexDirection:'row',
+      justifyContent:'center',
+      alignItems:'flex-start',
     },
     msgList:{
-      flex:1,
-      flexDirection:'column',
-      justifyContent:'flex-end',
- 
+     
     }
 });
 

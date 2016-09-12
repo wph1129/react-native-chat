@@ -16,10 +16,12 @@ class ActionsIOS extends React.Component {
     super(props);
     this._images = [];
     this.state = {
+      num: 0,
+      selected: [],
       modalVisible: false,
     };
     this.onActionsPress = this.onActionsPress.bind(this);
-    this.selectImages = this.selectImages.bind(this);
+    this.getSelectedImages = this.getSelectedImages.bind(this);
   }
 
   setImages(images) {
@@ -50,8 +52,14 @@ class ActionsIOS extends React.Component {
       }
   }
 
-  selectImages(images) {
+  getSelectedImages(images) {
     this.setImages(images);
+    //to do 
+    var num = images.length;
+    this.setState({
+      num: num,
+      selected: images,
+    });
   }
 
   renderNavBar() {
@@ -126,10 +134,14 @@ class ActionsIOS extends React.Component {
         >
         {this.renderNavBar()}
         <CameraRollPicker
-          maximum={10}
-          imagesPerRow={4}
-          callback={this.selectImages}
-          selected={[]}
+          groupTypes='SavedPhotos'
+          batchSize={5}
+          maximum={5}
+          selected={this.state.selected}
+          assetType='Photos'
+          imagesPerRow={3}
+          imageMargin={5}
+          callback={this.getSelectedImages}
         />
         </Modal>
         {this.renderIcon()}

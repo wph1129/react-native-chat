@@ -4,6 +4,7 @@ import {
   StyleSheet,
   TouchableWithoutFeedback,
   View,
+  Text,
 } from 'react-native';
 
 import MessageText from './MessageText';
@@ -98,6 +99,7 @@ class Bubble extends React.Component {
   render() {
     return (
       <View style={[styles[this.props.position].container, this.props.containerStyle[this.props.position]]}>
+        <View style={styles[this.props.position].bubbleTip}></View>
         <View style={[styles[this.props.position].wrapper, this.props.wrapperStyle[this.props.position], this.handleBubbleToNext(), this.handleBubbleToPrevious()]}>
           <TouchableWithoutFeedback
             onLongPress={this.onLongPress}
@@ -110,14 +112,14 @@ class Bubble extends React.Component {
               {this.renderMessageText()}
               {
                 /* this.renderTime()
-                *  not dispaly time in  message 
+                *  not dispaly time in message 
                 *
                 */
                }
-               
             </View>
           </TouchableWithoutFeedback>
         </View>
+        <View style={styles[this.props.position].bubbleTip}></View>
       </View>
     );
   }
@@ -127,7 +129,18 @@ const styles = {
   left: StyleSheet.create({
     container: {
       flex: 1,
-      alignItems: 'flex-start',
+      flexDirection:'row',
+      justifyContent: 'flex-end',
+      alignItems: 'center',
+    },
+    bubbleTip:{
+        borderWidth: 8,
+        borderLeftWidth: 0,
+        borderColor: 'transparent',
+        borderRightColor: '#f0f0f0',
+        top:8,
+        left:0,
+        borderStyle:'solid',
     },
     wrapper: {
       borderRadius: 5,
@@ -146,7 +159,18 @@ const styles = {
   right: StyleSheet.create({
     container: {
       flex: 1,
-      alignItems: 'flex-end',
+      flexDirection:'row',
+      justifyContent: 'flex-end',
+      alignItems: 'center',
+    },
+    bubbleTip:{
+        borderWidth: 8,
+        borderRightWidth: 0,
+        borderColor: 'transparent',
+        borderLeftColor: '#0084ff',
+        top:8,
+        right:0,
+        borderStyle:'solid',
     },
     wrapper: {
       borderRadius: 5,
