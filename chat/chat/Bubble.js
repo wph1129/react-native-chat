@@ -97,9 +97,11 @@ class Bubble extends React.Component {
   }
 
   render() {
+    let bubbleLeftTip = this.props.position === 'left' ? (<View style={styles[this.props.position].bubbleTip}></View>) : null;
+    let bubbleRightTip = this.props.position === 'right' ? (<View style={styles[this.props.position].bubbleTip}></View>) : null;
     return (
       <View style={[styles[this.props.position].container, this.props.containerStyle[this.props.position]]}>
-        <View style={styles[this.props.position].bubbleTip}></View>
+        {bubbleLeftTip}
         <View style={[styles[this.props.position].wrapper, this.props.wrapperStyle[this.props.position], this.handleBubbleToNext(), this.handleBubbleToPrevious()]}>
           <TouchableWithoutFeedback
             onLongPress={this.onLongPress}
@@ -119,7 +121,7 @@ class Bubble extends React.Component {
             </View>
           </TouchableWithoutFeedback>
         </View>
-        <View style={styles[this.props.position].bubbleTip}></View>
+       {bubbleRightTip}
       </View>
     );
   }
@@ -130,7 +132,7 @@ const styles = {
     container: {
       flex: 1,
       flexDirection:'row',
-      justifyContent: 'flex-end',
+      justifyContent: 'flex-start',
       alignItems: 'center',
     },
     bubbleTip:{
@@ -138,8 +140,8 @@ const styles = {
         borderLeftWidth: 0,
         borderColor: 'transparent',
         borderRightColor: '#f0f0f0',
-        top:8,
-        left:0,
+        top:0,
+        left:1,
         borderStyle:'solid',
     },
     wrapper: {
